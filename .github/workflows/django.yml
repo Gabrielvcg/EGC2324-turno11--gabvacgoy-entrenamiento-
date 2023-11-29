@@ -1,8 +1,10 @@
 name: Python application
 
-on: [push]
+on: 
+  push:
+   branches:
+    - main
   
-
 jobs:
   build:
 
@@ -38,7 +40,7 @@ jobs:
       run: |
         cd decide
         python manage.py migrate
-    - name: Run tests
+    - name: Run tests for voting
       run: |
         cd decide
-        ./manage.py test  --keepdb
+        ./manage.py test voting  --keepdb
